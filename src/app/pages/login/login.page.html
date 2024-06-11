@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>SkeletonAPP Navegacion II</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center ion-padding">
+  <ion-item>
+    <ion-label position="stacked">Usuario</ion-label>
+    <ion-input [(ngModel)]="userInput" name="userInput"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Contraseña</ion-label>
+    <ion-input [(ngModel)]="passwordInput" type="password" name="passwordInput"></ion-input>
+  </ion-item>
+
+  <ion-button color="dark" expand="block" (click)="login_imp()">Ingresar</ion-button>
+
+  <a class="ion-text-center" routerLink="/registro">Crea tu cuenta gratis aqui</a>
+
+</ion-content>

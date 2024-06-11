@@ -1,0 +1,31 @@
+<ion-content>
+  <ion-list>
+
+    <ion-item>
+      <ion-button *ngIf="!userIsEditing" expand="full" color="primary" (click)="guardarCertificacion()">Guardar</ion-button>
+      <ion-button *ngIf="userIsEditing" expand="full" color="primary" (click)="guardarCambioCertificacion()">Guardar Cambios</ion-button>
+      <ion-button *ngIf="userIsEditing" expand="full" color="primary" (click)="descartarCambios()">Descartar</ion-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Nombre del Certificado</ion-label>
+      <ion-input placeholder="Ingrese el nombre del certificado" [(ngModel)]="nombreInput" [disabled]="userIsEditing"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Fecha de Obtención</ion-label>
+      <ion-datetime display-format="YYYY-MM-DD" placeholder="Seleccione la fecha de obtención" [(ngModel)]="fecha"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>¿El Certificado Tiene Vencimiento?</ion-label>
+      <ion-checkbox slot="start" (ionChange)="onTieneVencimientoChange($event)"></ion-checkbox>
+    </ion-item>
+
+    <ion-item *ngIf="tieneVencimiento">
+      <ion-label position="stacked">Fecha de Vencimiento</ion-label>
+      <ion-datetime display-format="YYYY-MM-DD" placeholder="Seleccione la fecha de vencimiento" [(ngModel)]="vencimiento"></ion-datetime>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

@@ -1,0 +1,43 @@
+<ion-header [translucent]="false">
+  <ion-toolbar>
+    <ion-title>Experiencia Laboral</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-item>
+    <ion-button *ngIf="!userIsEditing" expand="full" color="primary" (click)="guardarExperiencia()">Guardar</ion-button>
+    <ion-button *ngIf="userIsEditing" expand="full" color="primary" (click)="guardarCambios()">Guardar Cambios</ion-button>
+    <ion-button *ngIf="userIsEditing" expand="full" color="primary" (click)="descartarCambios()">Descartar</ion-button>
+  </ion-item>
+
+  <ion-list class="ion-padding">
+
+    <ion-item>
+      <ion-label position="stacked">Nombre de la empresa</ion-label>
+      <ion-input placeholder="Ingrese el nombre de la empresa" [(ngModel)]="empresaInput" [disabled]="userIsEditing"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Cargo</ion-label>
+      <ion-input placeholder="Ingrese el cargo" [(ngModel)]="cargoInput"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Año de Inicio</ion-label>
+      <ion-datetime display-format="YYYY" placeholder="Seleccione el año de inicio" [(ngModel)]="fechaInicioInput"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Actualmente Trabaja Aquí</ion-label>
+      <ion-checkbox slot="start" (ionChange)="onTrabajaActualmenteChange($event)"></ion-checkbox>
+    </ion-item>
+
+    <ion-item *ngIf="!trabajaActualmente">
+      <ion-label position="stacked">Año de Término</ion-label>
+      <ion-datetime display-format="YYYY" placeholder="Seleccione el año de término" [(ngModel)]="fechaTerminoInput"></ion-datetime>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

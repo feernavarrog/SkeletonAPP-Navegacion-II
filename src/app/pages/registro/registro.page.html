@@ -1,0 +1,20 @@
+<ion-toolbar color="dark">
+  <ion-title class="ion-text-center">Registra tu Usuario</ion-title>
+</ion-toolbar>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Nombre de usuario</ion-label>
+    <ion-input type="text" [(ngModel)]="username"></ion-input>
+    <ion-note class="ion-padding">Usuario debe contener maximo 8 caracteres</ion-note>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="password"></ion-input>
+    <ion-note class="ion-padding">La contraseña debe contener al menos una mayuscula, un numero y extension entre 8 a 10 caracteres</ion-note>
+  </ion-item>
+  
+  <ion-button  color="dark" expand="block" (click)="register()">Registrar mi Usuario</ion-button>
+
+</ion-content>
